@@ -60,4 +60,9 @@ of files Electron installs. If you hit install errors, either move the
 project outside OneDrive (e.g. `C:\Projects\...`) or add a Windows Defender
 exclusion for the folder before installing.
 
+## Screenshots
+
+![Screenshot 1](images/screenshot1.png)
+
+![Screenshot 2](images/screenshot2.png)
 
