@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Calculator</title>
+    <script>
+      (function () {
+        const saved = localStorage.getItem("calc-theme");
+        const theme =
+          saved === "light" || saved === "dark"
+            ? saved
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="pixelHeartIcon" viewBox="0 0 9 8">
+          <rect class="ph-outline" x="2" y="0" width="1" height="1" />
+          <rect class="ph-outline" x="3" y="0" width="1" height="1" />
+          <rect class="ph-outline" x="5" y="0" width="1" height="1" />
+          <rect class="ph-outline" x="6" y="0" width="1" height="1" />
+          <rect class="ph-outline" x="1" y="1" width="1" height="1" />
+          <rect class="ph-shadow" x="2" y="1" width="1" height="1" />
+          <rect class="ph-fill" x="3" y="1" width="1" height="1" />
+          <rect class="ph-outline" x="4" y="1" width="1" height="1" />
+          <rect class="ph-outline" x="5" y="1" width="1" height="1" />
+          <rect class="ph-fill" x="6" y="1" width="1" height="1" />
+          <rect class="ph-fill" x="7" y="1" width="1" height="1" />
+          <rect class="ph-outline" x="8" y="1" width="1" height="1" />
+          <rect class="ph-outline" x="0" y="2" width="1" height="1" />
+          <rect class="ph-shadow" x="1" y="2" width="1" height="1" />
+          <rect class="ph-fill" x="2" y="2" width="1" height="1" />
+          <rect class="ph-fill" x="3" y="2" width="1" height="1" />
+          <rect class="ph-fill" x="4" y="2" width="1" height="1" />
+          <rect class="ph-fill" x="5" y="2" width="1" height="1" />
+          <rect class="ph-fill" x="6" y="2" width="1" height="1" />
+          <rect class="ph-highlight" x="7" y="2" width="1" height="1" />
+          <rect class="ph-outline" x="8" y="2" width="1" height="1" />
+          <rect class="ph-outline" x="0" y="3" width="1" height="1" />
+          <rect class="ph-shadow" x="1" y="3" width="1" height="1" />
+          <rect class="ph-fill" x="2" y="3" width="1" height="1" />
+          <rect class="ph-fill" x="3" y="3" width="1" height="1" />
+          <rect class="ph-fill" x="4" y="3" width="1" height="1" />
+          <rect class="ph-fill" x="5" y="3" width="1" height="1" />
+          <rect class="ph-highlight" x="6" y="3" width="1" height="1" />
+          <rect class="ph-fill" x="7" y="3" width="1" height="1" />
+          <rect class="ph-outline" x="8" y="3" width="1" height="1" />
+          <rect class="ph-outline" x="1" y="4" width="1" height="1" />
+          <rect class="ph-shadow" x="2" y="4" width="1" height="1" />
+          <rect class="ph-fill" x="3" y="4" width="1" height="1" />
+          <rect class="ph-fill" x="4" y="4" width="1" height="1" />
+          <rect class="ph-fill" x="5" y="4" width="1" height="1" />
+          <rect class="ph-fill" x="6" y="4" width="1" height="1" />
+          <rect class="ph-outline" x="7" y="4" width="1" height="1" />
+          <rect class="ph-outline" x="1" y="5" width="1" height="1" />
+          <rect class="ph-shadow" x="2" y="5" width="1" height="1" />
+          <rect class="ph-shadow" x="3" y="5" width="1" height="1" />
+          <rect class="ph-fill" x="4" y="5" width="1" height="1" />
+          <rect class="ph-fill" x="5" y="5" width="1" height="1" />
+          <rect class="ph-outline" x="6" y="5" width="1" height="1" />
+          <rect class="ph-outline" x="2" y="6" width="1" height="1" />
+          <rect class="ph-shadow" x="3" y="6" width="1" height="1" />
+          <rect class="ph-fill" x="4" y="6" width="1" height="1" />
+          <rect class="ph-outline" x="5" y="6" width="1" height="1" />
+          <rect class="ph-outline" x="3" y="7" width="1" height="1" />
+          <rect class="ph-outline" x="4" y="7" width="1" height="1" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="scene">
+      <div class="stars" aria-hidden="true">
+        <span class="star">★</span>
+        <span class="star">♡</span>
+        <span class="star">✦</span>
+        <span class="star">★</span>
+        <span class="star">✧</span>
+        <span class="star">♡</span>
+        <span class="star">★</span>
+      </div>
+
+      <main class="calculator" aria-label="Pixel calculator">
+        <div class="sticker sticker-heart-left" aria-hidden="true">
+          <img class="crystal-photo-sticker" src="crystal-heart.png" alt="" />
+        </div>
+        <div class="sticker sticker-star" aria-hidden="true">⭐</div>
+        <div class="sticker sticker-heart-right" aria-hidden="true">
+          <img class="crystal-photo-sticker" src="crystal-heart.png" alt="" />
+        </div>
+
+        <header class="calc-header">
+          <span class="calc-badge">✨ calc</span>
+          <span class="calc-mascot" id="mascot" aria-hidden="true">(◕‿◕)</span>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Switch to dark theme"
+            title="Toggle theme"
+          >
+            <span class="theme-icon theme-icon-light" aria-hidden="true">☀</span>
+            <span class="theme-icon theme-icon-dark" aria-hidden="true">☾</span>
+          </button>
+        </header>
+
+        <div class="display-wrap">
+          <div class="display-label">result</div>
+          <output id="display" class="display" aria-live="polite">0</output>
+        </div>
+
+        <div class="equals-row">
+          <img class="pixel-heart-flank" src="pixel-blue-heart.png" alt="" aria-hidden="true" />
+          <button type="button" class="key key-eq key-eq-solo" data-action="equals" aria-label="Equals">
+            <img class="crystal-photo" src="crystal-heart.png" alt="" />
+          </button>
+          <img class="pixel-heart-flank" src="pixel-blue-heart.png" alt="" aria-hidden="true" />
+        </div>
+
+        <div class="keypad" role="group" aria-label="Calculator keys">
+          <button type="button" class="key key-fn key-wide" data-action="clear">C</button>
+          <button type="button" class="key key-fn key-wide" data-action="backspace">⌫</button>
+
+          <button type="button" class="key key-num" data-action="digit" data-value="7">7</button>
+          <button type="button" class="key key-num" data-action="digit" data-value="8">8</button>
+          <button type="button" class="key key-num" data-action="digit" data-value="9">9</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="/">÷</button>
+
+          <button type="button" class="key key-num" data-action="digit" data-value="4">4</button>
+          <button type="button" class="key key-num" data-action="digit" data-value="5">5</button>
+          <button type="button" class="key key-num" data-action="digit" data-value="6">6</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="*">×</button>
+
+          <button type="button" class="key key-num" data-action="digit" data-value="1">1</button>
+          <button type="button" class="key key-num" data-action="digit" data-value="2">2</button>
+          <button type="button" class="key key-num" data-action="digit" data-value="3">3</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="-">−</button>
+
+          <button type="button" class="key key-num key-wide" data-action="digit" data-value="0">0</button>
+          <button type="button" class="key key-num" data-action="decimal">.</button>
+          <button type="button" class="key key-op" data-action="operator" data-value="+">+</button>
+        </div>
+
+        <footer class="calc-footer">keyboard &amp; click supported ♡</footer>
+      </main>
+    </div>
+
+    <script src="calculator.js"></script>
+  </body>
+</html>
