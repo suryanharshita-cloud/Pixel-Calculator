@@ -62,7 +62,8 @@ exclusion for the folder before installing.
 
 ## Screenshots
 
-![Screenshot 1](screenshot1.png)
-
-![Screenshot 2](screenshot2.png)
+<p align="center">
+  <img src="screenshot1.png" width="45%">
+  <img src="screenshot2.png" width="45%">
+</p>
 
